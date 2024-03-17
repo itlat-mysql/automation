@@ -1,0 +1,15 @@
+name: Learning Github Actions
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+jobs:
+  my_first_job:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: My First Actions
+        run: touch file.txt
+      - name: My Second Actions
+        run: echo "Some Data" > file.txt
+      - name: My Third Actions
+        run: cat file.txt
