@@ -1,10 +1,24 @@
-name: Learning Github Actions
+name: Testing Github Actions
 on:
   workflow_dispatch:
   push:
     branches: [ "main" ]
 jobs:
-  my_first_job:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test Application
+        run: |
+          chmod +x test.sh
+          ./test.sh
+  
+  
+  
+  
+ 
+  
+  
     runs-on: ubuntu-22.04
     steps:
       - name: My First Actions
