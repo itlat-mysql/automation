@@ -13,3 +13,8 @@ jobs:
         run: echo "Some Data" > file.txt
       - name: My Third Actions
         run: cat file.txt
+  my_second_job:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Directory Listing
+        run: ls -la
