@@ -12,3 +12,19 @@ jobs:
         run: |
           chmod +x test.sh
           ./test.sh
+  email_sending:
+    runs-on: 'ubuntu-22.04'
+    needs: test
+    if: ${{ failure() }}
+    steps:
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: sandbox.smtp.mailtrap.io
+          server_port: 2525
+          username: a2950095c62c7e
+          password: 521ae9d9362f2b
+          subject: An unexpected error occured!
+          body: ${{ github.workflow }} of ${{ github.repository }} has failed
+          to: receiver@email.com
+          from: sender@email.com
