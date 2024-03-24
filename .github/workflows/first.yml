@@ -1,8 +1,6 @@
 name: Testing Github Actions
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
 jobs:
   test:
     runs-on: ubuntu-22.04
