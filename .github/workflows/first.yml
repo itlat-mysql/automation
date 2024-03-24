@@ -40,6 +40,4 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           fingerprint: SHA256:oOrrFGkhFJ2fRqqzc+YJvBN2B3fPnvquUpFaL1V1mXA
-          script: |
-            cd web
-	        git pull
+          script: cd web && git pull
