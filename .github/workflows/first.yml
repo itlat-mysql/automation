@@ -28,3 +28,18 @@ jobs:
           body: ${{ github.workflow }} of ${{ github.repository }} has failed
           to: receiver@email.com
           from: sender@email.com
+  delivery:
+    runs-on: 'ubuntu-22.04'
+    needs: test
+    steps:
+      - name: Apply Changes
+        uses: appleboy/ssh-action@v1.0.1
+        with:
+          host: lesson.lv
+          username: teacher 
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          fingerprint: SHA256:oOrrFGkhFJ2fRqqzc+YJvBN2B3fPnvquUpFaL1V1mXA
+          script: |
+            cd web
+	        git pull
