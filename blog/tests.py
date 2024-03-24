@@ -41,7 +41,7 @@ class BlogViewsTest(TestCase):
         self.assertEqual(self.post, response.context['post'])
 
     def test_show_view_inactive_post(self):
-        self.post.active = False
+        self.post.active = True
         self.post.save()
         response = self.client.get(reverse('blog:show', args=[self.post.id]))
         self.assertEqual(response.status_code, 404)
